@@ -36,7 +36,7 @@ export default function WorkGallery() {
             <span>Factory & On-Site Showcase</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Our Executed Work {images.length > 0 && `(${images.length} Projects)`}
+            Our Executed Work
           </h2>
           <p className="text-xs sm:text-sm text-steel-muted leading-relaxed">
             Real spaces manufactured directly in our facility and executed turnkey across Telangana.
@@ -68,7 +68,7 @@ export default function WorkGallery() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3 sm:p-4">
                     <a
-                      href={`https://wa.me/919676427377?text=Hi%20Jaycraft,%20I'm%20inquiring%20about%20your%20showcase%20design%20#${idx + 1}`}
+                      href={`https://wa.me/919676427377?text=Hi%20Jaycraft,%20I'm%20inquiring%20about%20your%20showcase%20design%20from your showcase`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-full py-2 rounded-xl bg-brand-orange text-white text-[11px] font-bold uppercase tracking-wider text-center flex items-center justify-center gap-1.5 shadow-md hover:bg-brand-orange-hover transition-colors"
@@ -87,7 +87,7 @@ export default function WorkGallery() {
                   onClick={() => setVisibleCount((prev) => prev + 16)}
                   className="px-6 py-2.5 rounded-full border border-steel-border hover:border-brand-orange bg-steel-card text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2 transition-colors shadow-md"
                 >
-                  <span>Load More Works ({images.length - visibleCount} remaining)</span>
+                  <span>Load More Works</span>
                   <ChevronDown className="w-4 h-4" />
                 </button>
               </div>
