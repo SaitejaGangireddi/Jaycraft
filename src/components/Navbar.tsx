@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import BrandLogo from "./BrandLogo";
@@ -12,8 +11,12 @@ export default function Navbar() {
       <nav className="w-full max-w-7xl mx-auto flex items-center justify-between px-6 py-3 rounded-full border bg-steel-card/90 backdrop-blur-xl border-steel-border shadow-2xl">
         <BrandLogo />
 
-        <div className="hidden lg:flex items-center gap-8 text-xs font-semibold uppercase tracking-wider text-steel-muted">
+        <div className="hidden lg:flex items-center gap-7 text-xs font-semibold uppercase tracking-wider text-steel-muted">
           <a href="#solutions" className="hover:text-white transition-colors">Design Ideas</a>
+          <a href="#our-work" className="hover:text-white text-brand-orange font-bold transition-colors flex items-center gap-1">
+            <span>Our Work</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse" />
+          </a>
           <a href="#process" className="hover:text-white transition-colors">How It Works</a>
           <a href="#why-us" className="hover:text-white transition-colors">Why Jaycraft</a>
           <a href="#founder" className="hover:text-white transition-colors">Founder</a>
@@ -22,7 +25,7 @@ export default function Navbar() {
 
         <div className="hidden sm:flex items-center">
           <a
-            href="https://wa.me/919876543210?text=Hi%20Jaycraft%20Interiors,%20I'd%20like%20to%20consult%20for%20my%20space."
+            href="https://wa.me/919676427377?text=Hi%20Jaycraft%20Interiors,%20I'd%20like%20to%20consult%20for%20my%20space."
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-full bg-brand-orange hover:bg-brand-orange-hover text-white text-xs font-bold uppercase tracking-wider px-5 py-2.5 shadow-lg shadow-brand-orange/20 transition-all flex items-center gap-1.5 hover:scale-105"
@@ -43,6 +46,7 @@ export default function Navbar() {
       {mobileOpen && (
         <div className="absolute top-20 left-4 right-4 bg-steel-card/95 border border-steel-border rounded-3xl p-6 shadow-2xl flex flex-col gap-4 text-sm font-semibold uppercase tracking-wider text-steel-muted lg:hidden backdrop-blur-xl">
           <a onClick={() => setMobileOpen(false)} href="#solutions" className="hover:text-white">Design Ideas</a>
+          <a onClick={() => setMobileOpen(false)} href="#our-work" className="text-brand-orange font-bold">Our Work</a>
           <a onClick={() => setMobileOpen(false)} href="#process" className="hover:text-white">How It Works</a>
           <a onClick={() => setMobileOpen(false)} href="#why-us" className="hover:text-white">Why Jaycraft</a>
           <a onClick={() => setMobileOpen(false)} href="#founder" className="hover:text-white">Founder</a>

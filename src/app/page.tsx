@@ -1,11 +1,11 @@
 "use client";
-
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import RoomCategories from "@/components/RoomCategories";
 import LuxeGlamSection from "@/components/LuxeGlamSection";
 import TrendingDesigns from "@/components/TrendingDesigns";
+import WorkGallery from "@/components/WorkGallery";
 import FoundersSection from "@/components/FoundersSection";
 import ProcessFlow from "@/components/ProcessFlow";
 import WhyJaycraft from "@/components/WhyJaycraft";
@@ -22,6 +22,7 @@ export default function Home() {
       <RoomCategories />
       <LuxeGlamSection />
       <TrendingDesigns />
+      <WorkGallery />
       <FoundersSection />
       <ProcessFlow />
       <WhyJaycraft />
