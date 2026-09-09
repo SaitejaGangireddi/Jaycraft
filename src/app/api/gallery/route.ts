@@ -1,29 +1,29 @@
 import { NextResponse } from "next/server";
+import { v2 as cloudinary } from "cloudinary";
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME || "dmkjnuolr",
+  api_key: process.env.CLOUDINARY_API_KEY || "721575545417744",
+  api_secret: process.env.CLOUDINARY_API_SECRET || "SO54jFILfl0cNxP04UqLkN97Cng",
+  secure: true,
+});
+
+export const dynamic = "force-dynamic";
 
 export async function GET() {
   try {
-    // Cloudinary folder search URL
-    const cloudName = "dmkjnuolr";
-    const folder = "Jaycraft";
-    
-    // Fetch directly from Cloudinary search/list API
-    const res = await fetch(
-      `https://res.cloudinary.com/${cloudName}/image/list/${folder}.json`,
-      { next: { revalidate: 60 } }
-    );
+    // Cloudinary Search API queries the exact Jaycraft folder
+    const result = await cloudinary.search
+      .expression("folder:Jaycraft*")
+      .sort_by("public_id", "desc")
+      .max_results(100)
+      .execute();
 
-    if (res.ok) {
-      const data = await res.json();
-      const urls = (data.resources || []).map(
-        (img: any) =>
-          `https://res.cloudinary.com/${cloudName}/image/upload/q_auto,f_auto,w_800/v${img.version}/${img.public_id}.${img.format}`
-      );
-      return NextResponse.json({ urls });
-    }
+    const urls = (result.resources || []).map((resource: any) => resource.secure_url);
 
-    // Fallback: direct prefix listing
-    return NextResponse.json({ urls: [] });
-  } catch (err) {
-    return NextResponse.json({ urls: [] }, { status: 500 });
+    return NextResponse.json({ urls, count: urls.length });
+  } catch (error: any) {
+    console.error("Cloudinary Search Error:", error);
+    return NextResponse.json({ urls: [], error: error.message }, { status: 500 });
   }
 }
